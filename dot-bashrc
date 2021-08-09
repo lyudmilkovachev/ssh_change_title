@@ -1,0 +1,6 @@
+function ssh() {
+	unset PROMPT_COMMAND
+	echo -en "\033]2;${@}\007"
+	/usr/bin/ssh "$@"
+	export PROMPT_COMMAND='echo -ne "\033]0;${PWD}\007"'
+}
